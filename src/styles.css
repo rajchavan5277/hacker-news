@@ -2,3 +2,21 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*Comman class*/
+.text-align-center {
+    text-align: center;
+}
+
+.font-color {
+    color: #ffffff;
+}
+.font-color:hover {
+    color: #ffffff;
+}
+.font-color-black{
+    color: black;
+}
+.height {
+    min-height: 85vh;
+}
