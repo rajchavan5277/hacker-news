@@ -2,3 +2,25 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/*Comman class*/
+.text-align-center {
+    text-align: center;
+}
+
+.font-color-white {
+    color: #ffffff;
+}
+.font-color-whiter:hover {
+    color: #ffffff;
+}
+.font-color-black{
+    color: black;
+}
+.height {
+    min-height: 85vh;
+}
+
+.mat-drawer-inner-container {
+    min-width: 250px;
+}
