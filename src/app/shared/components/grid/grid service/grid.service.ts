@@ -8,7 +8,11 @@ export class GridService {
 
   constructor(public http: HttpClient) { }
 
-  getNewsFeed() {
-    return this.http.get(environment.url + '/v1/search?tags=front_page')
+  getNewsFeed(isPagination, pageNumber) {
+    let url = '/v1/search?tags=front_page';
+    if(isPagination){
+      url = '/v1/search?page='+ pageNumber;
+    }
+    return this.http.get(environment.url + url);
   }
 }

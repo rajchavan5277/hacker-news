@@ -10,9 +10,11 @@ import { GridService } from './grid service/grid.service';
 })
 export class GridComponent implements OnInit {
   @Input() type: String;
-  displayedColumns = ['Index', 'Comments','News', 'author'];;
+  displayedColumns = ['Index', 'Comments', 'News', 'author'];;
   dataSource = new MatTableDataSource([]);
   news: any = [];
+  totalPage = 0;
+  totalRecords = 0;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   constructor(public gridService: GridService) { }
@@ -20,7 +22,7 @@ export class GridComponent implements OnInit {
   ngOnInit(): void {
     switch (this.type) {
       case 'news-feed': {
-        this.getAllNewsFeed();
+        this.getAllNewsFeed(false, 0);
         break;
       }
       default: {
@@ -28,28 +30,36 @@ export class GridComponent implements OnInit {
       }
     }
   }
-  getAllNewsFeed() {
-    if(sessionStorage.getItem('news')) {
+  getAllNewsFeed(isPagination, pageNumber) {
+    if (sessionStorage.getItem('news') && isPagination == false) {
       this.news = JSON.parse(sessionStorage.getItem('news'));
       this.dataSource = new MatTableDataSource(this.news.hits);
-    }else {
-      this.gridService.getNewsFeed().subscribe((resp) => {
+    } else {
+      this.gridService.getNewsFeed(isPagination, pageNumber).subscribe((resp) => {
         this.news = resp;
         this.dataSource = new MatTableDataSource(this.news.hits);
-        sessionStorage.setItem('news',JSON.stringify(this.news));
+        sessionStorage.setItem('news', JSON.stringify(this.news));
       })
     }
+    this.totalPage = this.news.nbPages;
+    this.totalRecords = this.news.nbHits;
   }
+
   increaseCount(element) {
-     // Update count
-     this.news.hits.map(function(item){
-        if(item.objectID === element.objectID) {
-          item.points++;
-        }
-     });
-     // Update in session storage
-     sessionStorage.setItem('news',JSON.stringify(this.news));
-    
-     // Update Chart
+    // Update count
+    this.news.hits.map(function (item) {
+      if (item.objectID === element.objectID) {
+        item.points++;
+      }
+    });
+    // Update in session storage
+    sessionStorage.setItem('news', JSON.stringify(this.news));
+
+    // Update Chart
+  }
+
+  getPagination(event) {
+    console.log(event);
+    this.getAllNewsFeed(true, event.pageIndex + 1);
   }
 }
