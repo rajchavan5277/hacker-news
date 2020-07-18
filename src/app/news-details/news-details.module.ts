@@ -1,6 +1,7 @@
+import { MaterailModule } from './../materail/materail.module';
+import { SharedModule } from './../shared/shared.module';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NewsFeedsComponent } from './';
 
 const routes: Routes = [
@@ -8,10 +9,14 @@ const routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [NewsFeedsComponent],
   imports: [
-    CommonModule,
+    SharedModule,
     RouterModule.forChild(routes)
+  ],
+  exports: [
+    SharedModule,
+    NewsFeedsComponent
   ]
 })
 export class NewsDetailsModule { }

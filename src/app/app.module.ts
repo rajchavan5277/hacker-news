@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 @NgModule({
   declarations: [
@@ -16,8 +17,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     SharedModule,
     CoreModule,
-    AppRoutingModule
+    QuicklinkModule,
+    AppRoutingModule,
   ],
+  exports: [SharedModule],
   providers: [],
   bootstrap: [AppComponent]
 })
