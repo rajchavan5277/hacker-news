@@ -9,8 +9,8 @@ import { GridService } from './grid service/grid.service';
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
-  @Input() type: String;
-  displayedColumns = ['Index', 'Comments', 'News', 'author'];;
+  @Input() type: string;
+  displayedColumns =['Index', 'Comments', 'News', 'author'];
   dataSource = new MatTableDataSource([]);
   news: any = [];
   totalPage = 0;
@@ -31,7 +31,7 @@ export class GridComponent implements OnInit {
     }
   }
   getAllNewsFeed(isPagination, pageNumber) {
-    if (sessionStorage.getItem('news') && isPagination == false) {
+    if (sessionStorage.getItem('news') && isPagination === false) {
       this.news = JSON.parse(sessionStorage.getItem('news'));
       this.dataSource = new MatTableDataSource(this.news.hits);
     } else {
@@ -39,7 +39,7 @@ export class GridComponent implements OnInit {
         this.news = resp;
         this.dataSource = new MatTableDataSource(this.news.hits);
         sessionStorage.setItem('news', JSON.stringify(this.news));
-      })
+      });
     }
     this.totalPage = this.news.nbPages;
     this.totalRecords = this.news.nbHits;
@@ -47,7 +47,7 @@ export class GridComponent implements OnInit {
 
   increaseCount(element) {
     // Update count
-    this.news.hits.map(function (item) {
+    this.news.hits.map(function(item) {
       if (item.objectID === element.objectID) {
         item.points++;
       }
@@ -59,7 +59,13 @@ export class GridComponent implements OnInit {
   }
 
   getPagination(event) {
-    console.log(event);
     this.getAllNewsFeed(true, event.pageIndex + 1);
+  }
+
+  hideFeed(element) {
+    const index = this.news.hits.findIndex((item) =>  item.objectID === element.objectID);
+    this.news.hits.splice(index, 1);
+    this.dataSource = new MatTableDataSource(this.news.hits);
+    sessionStorage.setItem('news', JSON.stringify(this.news));
   }
 }

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterailModule } from '../materail/materail.module';
 import { FormsModule } from '@angular/forms';
-import { 
-  HeaderComponent, 
+import {
+  HeaderComponent,
   FooterComponent
 } from './';
 import { GridComponent } from './components/grid/grid.component';
@@ -19,7 +19,7 @@ import { GridComponent } from './components/grid/grid.component';
     CommonModule,
     FormsModule,
     MaterailModule,
-    HeaderComponent, 
+    HeaderComponent,
     FooterComponent,
     GridComponent
   ]

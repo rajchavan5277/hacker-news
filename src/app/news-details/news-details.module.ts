@@ -5,8 +5,8 @@ import { NgModule } from '@angular/core';
 import { NewsFeedsComponent } from './';
 
 const routes: Routes = [
-  {path: '', component : NewsFeedsComponent}
-]
+  { path: '', component: NewsFeedsComponent }
+];
 
 @NgModule({
   declarations: [NewsFeedsComponent],
