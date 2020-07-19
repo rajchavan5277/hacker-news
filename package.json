@@ -11,7 +11,12 @@
     "dev:ssr": "ng run hacker-news:serve-ssr",
     "serve:ssr": "node dist/hacker-news/server/main.js",
     "build:ssr": "ng build --prod && ng run hacker-news:server:production",
-    "prerender": "ng run hacker-news:prerender"
+    "prerender": "ng run hacker-news:prerender",
+    "postinstall": "ng build --output-path hacker-news  --aot --prod"
+  },
+  "engines": {
+    "node": "v12.16.0",
+    "npm": "6.13.4"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +25,8 @@
     "@angular/common": "~9.1.1",
     "@angular/compiler": "~9.1.1",
     "@angular/core": "~9.1.1",
+    "@angular/cli": "~9.1.1",
+    "@angular/compiler-cli": "~9.1.1",
     "@angular/forms": "~9.1.1",
     "@angular/material": "^9.2.4",
     "@angular/platform-browser": "~9.1.1",
@@ -33,7 +40,8 @@
     "ngx-quicklink": "^0.2.3",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.10.2",
+    "typescript": "~3.8.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.1",
