@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "postinstall": "npm run build:ssr",
+    "start:heroku": "node dist/hacker-news",
     "start": "node serve.js",
     "build": "ng build",
     "test": "ng test",
@@ -11,8 +13,8 @@
     "dev:ssr": "ng run hacker-news:serve-ssr",
     "serve:ssr": "node dist/hacker-news/server/main.js",
     "build:ssr": "ng build --prod && ng run hacker-news:server:production",
-    "prerender": "ng run hacker-news:prerender",
-    "postinstall": "ng build --output-path dist/hacker-news/browser  --aot --prod"
+    "prerender": "ng run hacker-news:prerender"
+    
   },
   "engines": {
     "node": "v12.16.0",
