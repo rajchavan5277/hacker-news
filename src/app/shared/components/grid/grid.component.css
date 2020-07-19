@@ -62,3 +62,12 @@ table th:nth-child(2) {
 .mat-badge-content {
     font-size: 12px;
 }
+
+.hide{
+    color: #c2c2c2;
+    vertical-align: sub;
+    padding-right: 24px;
+    font-size: 18px;
+    padding-left: 10px;
+    cursor: pointer;
+}

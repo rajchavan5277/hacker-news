@@ -10,8 +10,8 @@ export class GridService {
 
   getNewsFeed(isPagination, pageNumber) {
     let url = '/v1/search?tags=front_page';
-    if(isPagination){
-      url = '/v1/search?page='+ pageNumber;
+    if (isPagination) {
+      url = '/v1/search?page=' + pageNumber;
     }
     return this.http.get(environment.url + url);
   }
