@@ -5,7 +5,7 @@
     "ng": "ng",
     "postinstall": "npm run build:ssr",
     "start:heroku": "node dist/hacker-news",
-    "start": "node serve.js",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
