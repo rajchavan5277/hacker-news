@@ -12,7 +12,7 @@
     "serve:ssr": "node dist/hacker-news/server/main.js",
     "build:ssr": "ng build --prod && ng run hacker-news:server:production",
     "prerender": "ng run hacker-news:prerender",
-    "postinstall": "ng build --output-path hacker-news  --aot --prod"
+    "postinstall": "ng build --output-path dist/hacker-news/browser  --aot --prod"
   },
   "engines": {
     "node": "v12.16.0",
