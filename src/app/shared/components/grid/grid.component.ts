@@ -36,7 +36,7 @@ export class GridComponent implements OnInit {
       }
     }
   }
-  
+
   getAllNewsFeed(isPagination, pageNumber) {
     if (sessionStorage.getItem('news') && isPagination === false) {
       this.news = JSON.parse(sessionStorage.getItem('news'));
@@ -110,8 +110,9 @@ export class GridComponent implements OnInit {
     series.tooltip.label.padding(12, 12, 12, 12)
 
     // Add scrollbar
-     chart.scrollbarX = new am4charts.XYChartScrollbar();
-     chart.scrollbarX.series.push(series);
+    let scrollbarX = new am4charts.XYChartScrollbar();
+    scrollbarX.series.push(series);
+    chart.scrollbarX = scrollbarX;
 
     // Add cursor
     chart.cursor = new am4charts.XYCursor();
