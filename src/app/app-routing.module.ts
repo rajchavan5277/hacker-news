@@ -15,8 +15,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forRoot(routes, {
-      preloadingStrategy: QuicklinkStrategy
-    })
+    preloadingStrategy: QuicklinkStrategy,
+    initialNavigation: 'enabled'
+})
   ],
   exports: [
     RouterModule
